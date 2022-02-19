@@ -17,4 +17,4 @@ def index():
 
     jsonayarla = json.loads(denemejson)
 
-    return jsonify(jsonayarla)
+    return jsonify(jsonayarla[0])
