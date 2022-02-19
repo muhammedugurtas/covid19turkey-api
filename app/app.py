@@ -1,12 +1,12 @@
-import json
-from fastapi import FastAPI, status, Response
+from flask import Flask, jsonify
 import requests
 from bs4 import BeautifulSoup
+import json
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/")
-async def root():
+@app.route('/')
+def index():
     veri = requests.get("https://covid19.saglik.gov.tr/")
 
     soup = BeautifulSoup(veri.content, "html.parser")
@@ -17,4 +17,4 @@ async def root():
 
     jsonayarla = json.loads(denemejson)
 
-    return jsonayarla[0]
+    return jsonify(jsonayarla)
