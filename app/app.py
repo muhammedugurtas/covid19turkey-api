@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import requests
 from bs4 import BeautifulSoup
 import json
+from jsonmerge import merge
 
 app = Flask(__name__)
 
